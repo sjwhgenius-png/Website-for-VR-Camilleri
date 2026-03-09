@@ -4,24 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cranebrook Gardens | Family-Owned Market Garden</title>
-  <meta
-    name="description"
-    content="Cranebrook Gardens is a small, family-owned market garden in Cranebrook, offering fresh produce and welcoming customers Friday to Sunday."
-  />
+  <meta name="description" content="Cranebrook Gardens is a family-owned market garden in Cranebrook, offering fresh produce and welcoming customers Friday to Sunday." />
+  <meta name="theme-color" content="#0d120d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b0f0b;
-      --bg-2: #111711;
+      --bg: #0c110d;
+      --bg-soft: #111713;
       --panel: rgba(255,255,255,0.05);
-      --panel-2: rgba(255,255,255,0.08);
+      --panel-strong: rgba(255,255,255,0.08);
       --line: rgba(255,255,255,0.10);
-      --text: #f6f4ee;
-      --muted: rgba(246,244,238,0.72);
-      --soft: rgba(246,244,238,0.52);
-      --green: #a3d16b;
-      --green-2: #dcedb7;
-      --gold: #d3b27a;
-      --shadow: 0 30px 90px rgba(0,0,0,0.35);
+      --text: #f6f3eb;
+      --muted: rgba(246,243,235,0.74);
+      --soft: rgba(246,243,235,0.56);
+      --green: #a4cf70;
+      --green-2: #d9ecb8;
+      --gold: #c9a66a;
+      --shadow: 0 30px 80px rgba(0,0,0,0.32);
       --radius-xl: 34px;
       --radius-lg: 26px;
       --radius-md: 18px;
@@ -32,31 +33,35 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top right, rgba(163,209,107,0.12), transparent 24%),
-        radial-gradient(circle at bottom left, rgba(211,178,122,0.10), transparent 22%),
-        linear-gradient(180deg, #10150f 0%, #0a0d09 55%, #080a08 100%);
+        radial-gradient(circle at top right, rgba(164,207,112,0.10), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(201,166,106,0.10), transparent 22%),
+        linear-gradient(180deg, #0f1510 0%, #0a0d0a 55%, #080908 100%);
       line-height: 1.6;
     }
 
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, h4, p { margin: 0; }
 
     .container {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
+    .serif {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       padding: 14px 0;
       backdrop-filter: blur(14px);
-      background: linear-gradient(180deg, rgba(8,10,8,0.78), rgba(8,10,8,0.30));
+      background: linear-gradient(180deg, rgba(8,10,8,0.82), rgba(8,10,8,0.35));
       border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
@@ -85,8 +90,8 @@
       border-radius: 999px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(163,209,107,0.28), rgba(220,237,183,0.08));
-      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(135deg, rgba(164,207,112,0.28), rgba(217,236,184,0.08));
+      border: 1px solid rgba(255,255,255,0.12);
       font-size: 21px;
       flex: 0 0 auto;
     }
@@ -101,14 +106,14 @@
     .brand-text span {
       display: block;
       font-size: 0.84rem;
-      color: rgba(255,255,255,0.52);
+      color: rgba(255,255,255,0.56);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 26px;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.74);
       font-size: 0.95rem;
     }
 
@@ -127,18 +132,18 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 50px;
+      min-height: 52px;
       padding: 0 24px;
       border-radius: 999px;
       transition: 0.25s ease;
       white-space: nowrap;
+      font-weight: 600;
     }
 
     .button-primary {
       color: #0d130a;
       background: linear-gradient(135deg, var(--green-2), var(--green));
-      box-shadow: 0 16px 34px rgba(163,209,107,0.18);
-      font-weight: 700;
+      box-shadow: 0 18px 38px rgba(164,207,112,0.18);
     }
 
     .button-primary:hover { transform: translateY(-1px); }
@@ -187,38 +192,41 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 68px 0 88px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 84px 0 96px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(9,11,8,0.42), rgba(9,11,8,0.74), rgba(9,11,8,0.96)),
+        radial-gradient(circle at top right, rgba(164,207,112,0.16), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(201,166,106,0.10), transparent 18%);
+      z-index: 0;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      z-index: 0;
+      z-index: -1;
     }
 
     .hero-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.38;
-    }
-
-    .hero-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(10,13,9,0.48), rgba(10,13,9,0.78), rgba(10,13,9,0.95)),
-        radial-gradient(circle at top right, rgba(163,209,107,0.15), transparent 24%);
+      opacity: 0.34;
+      transform: scale(1.02);
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 32px;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 34px;
       align-items: center;
     }
 
@@ -227,26 +235,26 @@
       align-items: center;
       gap: 10px;
       padding: 11px 16px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.05);
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.84);
       font-size: 0.92rem;
       backdrop-filter: blur(12px);
     }
 
     .hero-copy h1 {
-      font-size: clamp(3rem, 8vw, 5.6rem);
-      line-height: 0.94;
-      letter-spacing: -0.045em;
-      max-width: 10.5ch;
+      font-size: clamp(3.15rem, 8vw, 5.8rem);
+      line-height: 0.93;
+      letter-spacing: -0.05em;
+      max-width: 10.2ch;
+      margin-bottom: 18px;
     }
 
     .hero-copy p {
-      margin-top: 20px;
-      max-width: 650px;
-      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      max-width: 660px;
+      font-size: clamp(1.06rem, 2vw, 1.24rem);
       color: var(--muted);
     }
 
@@ -254,32 +262,37 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
-    .chips {
+    .hero-meta {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
+      margin-top: 30px;
       max-width: 760px;
-      margin-top: 28px;
     }
 
-    .chip {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
+    .meta-card {
+      padding: 16px;
       border-radius: 18px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.84);
       backdrop-filter: blur(10px);
+    }
+
+    .meta-card span {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.46);
+      margin-bottom: 6px;
     }
 
     .hero-card {
       position: relative;
-      min-height: 630px;
+      min-height: 650px;
       overflow: hidden;
       border-radius: var(--radius-xl);
       border: 1px solid var(--line);
@@ -297,7 +310,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(9,11,8,0.06), rgba(9,11,8,0.58), rgba(9,11,8,0.90));
+      background: linear-gradient(180deg, rgba(9,11,8,0.04), rgba(9,11,8,0.52), rgba(9,11,8,0.90));
     }
 
     .hero-badge,
@@ -311,7 +324,7 @@
       left: 20px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(9,11,8,0.42);
+      background: rgba(9,11,8,0.44);
       border: 1px solid rgba(255,255,255,0.12);
       font-size: 0.78rem;
       letter-spacing: 0.20em;
@@ -325,7 +338,7 @@
       bottom: 20px;
       padding: 24px;
       border-radius: 28px;
-      background: rgba(9,11,8,0.38);
+      background: rgba(9,11,8,0.36);
       border: 1px solid rgba(255,255,255,0.10);
       backdrop-filter: blur(14px);
     }
@@ -340,8 +353,12 @@
     }
 
     .hero-panel h2 {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-panel p {
+      color: rgba(255,255,255,0.76);
     }
 
     .hours-mini {
@@ -351,24 +368,24 @@
       margin-top: 18px;
     }
 
-    .hours-mini .mini {
+    .mini {
       padding: 14px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.05);
     }
 
-    .hours-mini span {
+    .mini span {
       display: block;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.48);
+      color: rgba(255,255,255,0.46);
       margin-bottom: 6px;
     }
 
     .section {
-      padding: 90px 0;
+      padding: 96px 0;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
 
@@ -387,13 +404,13 @@
 
     .section-title {
       max-width: 780px;
-      margin-bottom: 34px;
+      margin-bottom: 38px;
     }
 
     .section-title h2 {
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+      font-size: clamp(2.1rem, 4vw, 3.45rem);
+      line-height: 1.03;
+      letter-spacing: -0.035em;
       margin-bottom: 14px;
     }
 
@@ -402,9 +419,10 @@
       font-size: 1.05rem;
     }
 
-    .story-grid,
+    .two-col,
     .split-grid,
-    .contact-grid {
+    .contact-grid,
+    .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
@@ -412,7 +430,7 @@
     }
 
     .card {
-      padding: 26px;
+      padding: 28px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.04);
@@ -420,49 +438,30 @@
     }
 
     .card h3 {
-      font-size: 1.18rem;
+      font-size: 1.22rem;
       margin-bottom: 10px;
     }
 
     .card p {
-      color: rgba(255,255,255,0.66);
+      color: rgba(255,255,255,0.68);
     }
 
-    .quote-card {
+    .story-quote {
       background:
-        radial-gradient(circle at top left, rgba(163,209,107,0.10), transparent 30%),
+        radial-gradient(circle at top left, rgba(164,207,112,0.10), transparent 30%),
         rgba(255,255,255,0.04);
     }
 
-    .quote-card .quote {
-      font-size: clamp(1.4rem, 2.4vw, 2rem);
-      line-height: 1.25;
+    .story-quote .quote {
+      font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+      line-height: 1.22;
       letter-spacing: -0.02em;
       color: white;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .detail {
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .detail span {
-      display: block;
-      font-size: 0.74rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.46);
-      margin-bottom: 6px;
+    .feature-grid .card {
+      min-height: 100%;
     }
 
     .produce-grid {
@@ -490,7 +489,7 @@
       display: grid;
       place-items: center;
       border-radius: 18px;
-      background: rgba(163,209,107,0.12);
+      background: rgba(164,207,112,0.12);
       border: 1px solid rgba(255,255,255,0.08);
       font-size: 1.5rem;
       margin-bottom: 18px;
@@ -498,20 +497,25 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .gallery-stack {
+      display: grid;
       gap: 18px;
     }
 
     .gallery-card {
       position: relative;
       overflow: hidden;
-      min-height: 380px;
+      min-height: 360px;
       border-radius: 30px;
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
 
-    .gallery-card.tall { min-height: 500px; }
+    .gallery-card.large { min-height: 740px; }
 
     .gallery-card img {
       width: 100%;
@@ -550,6 +554,28 @@
       margin-bottom: 6px;
     }
 
+    .highlight-panel {
+      background:
+        radial-gradient(circle at top left, rgba(164,207,112,0.10), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(201,166,106,0.08), transparent 22%),
+        rgba(255,255,255,0.04);
+    }
+
+    .check-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .check-item {
+      padding: 15px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.16);
+      color: rgba(255,255,255,0.84);
+    }
+
     .hours-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -567,7 +593,7 @@
     .hour-card strong {
       display: block;
       margin-bottom: 8px;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
     }
 
     .hour-card span {
@@ -593,19 +619,21 @@
       margin-bottom: 4px;
     }
 
-    .contact-item p { color: rgba(255,255,255,0.66); }
+    .contact-item p {
+      color: rgba(255,255,255,0.66);
+    }
 
     .cta-card {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at top left, rgba(163,209,107,0.12), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(211,178,122,0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(164,207,112,0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(201,166,106,0.08), transparent 22%),
         rgba(255,255,255,0.04);
     }
 
     .footer {
-      padding: 28px 0 42px;
+      padding: 30px 0 42px;
       border-top: 1px solid rgba(255,255,255,0.06);
       color: rgba(255,255,255,0.48);
     }
@@ -637,23 +665,25 @@
 
     @media (max-width: 1100px) {
       .hero-content,
-      .story-grid,
+      .two-col,
       .split-grid,
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid,
+      .feature-grid,
+      .gallery-grid { grid-template-columns: 1fr; }
       .produce-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hours-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-card.large { min-height: 420px; }
     }
 
     @media (max-width: 820px) {
       .nav-links,
       .desktop-cta { display: none; }
       .menu-toggle { display: inline-grid; place-items: center; }
-      .chips,
-      .detail-grid,
-      .gallery-grid,
-      .hours-mini { grid-template-columns: 1fr; }
       .hero { padding-top: 42px; }
-      .hero-card { min-height: 520px; }
+      .hero-card { min-height: 540px; }
+      .hero-meta,
+      .hours-mini,
+      .check-list { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 580px) {
@@ -663,9 +693,9 @@
       .button { width: 100%; }
       .produce-grid,
       .hours-grid { grid-template-columns: 1fr; }
+      .section { padding: 76px 0; }
       .gallery-card,
-      .gallery-card.tall { min-height: 320px; }
-      .section { padding: 74px 0; }
+      .gallery-card.large { min-height: 300px; }
     }
   </style>
 </head>
@@ -706,14 +736,14 @@
   <main>
     <section class="hero" id="top">
       <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1800&q=80" alt="Fresh farm produce" />
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1800&q=80" alt="Fresh produce at a market garden" />
       </div>
       <div class="container hero-content">
         <div class="hero-copy fade-up">
           <div class="eyebrow">🌱 Small, family-owned market garden in Cranebrook</div>
-          <h1>Fresh produce, local roots, and a warm family feel.</h1>
+          <h1 class="serif">Fresh produce, local roots, and a genuinely warm family feel.</h1>
           <p>
-            Welcome to Cranebrook Gardens. We are a small, family-owned market garden in Cranebrook, offering fresh produce and welcoming customers from Friday through Sunday.
+            Welcome to Cranebrook Gardens. We are a small, family-owned market garden welcoming customers each week for fresh produce, honest local service, and a shopping experience that feels simple, friendly, and real.
           </p>
 
           <div class="hero-actions">
@@ -721,22 +751,30 @@
             <a class="button button-secondary" href="https://www.facebook.com/p/Cranebrook-Gardens-100041410911083/" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
           </div>
 
-          <div class="chips">
-            <div class="chip">✔ Family-owned and proudly local</div>
-            <div class="chip">✔ Fresh fruit and vegetables</div>
-            <div class="chip">✔ Open Friday to Sunday</div>
-            <div class="chip">✔ Facebook for latest updates</div>
+          <div class="hero-meta">
+            <div class="meta-card">
+              <span>Location</span>
+              Cranebrook, NSW
+            </div>
+            <div class="meta-card">
+              <span>Open</span>
+              Friday to Sunday
+            </div>
+            <div class="meta-card">
+              <span>Style</span>
+              Fresh, local, family-run
+            </div>
           </div>
         </div>
 
         <div class="hero-card fade-up">
-          <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=1400&q=80" alt="Colourful produce display" />
+          <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=1400&q=80" alt="Colourful fresh produce display" />
           <div class="hero-badge">Fresh from the farm</div>
           <div class="hero-panel">
-            <small>Cranebrook, NSW</small>
-            <h2>Cranebrook Gardens</h2>
-            <p style="color: rgba(255,255,255,0.76);">
-              A polished local website built around what matters most: fresh produce, friendly service, and clear information for customers visiting the packing shed.
+            <small>Cranebrook Gardens</small>
+            <h2 class="serif">Visit us this weekend</h2>
+            <p>
+              Built like a real finished site: clear hours, clean layout, strong visual presentation, and the Facebook page linked where people actually need it.
             </p>
             <div class="hours-mini">
               <div class="mini">
@@ -758,39 +796,32 @@
     </section>
 
     <section class="section" id="story">
-      <div class="container story-grid">
-        <div class="card quote-card fade-up">
+      <div class="container two-col">
+        <div class="card story-quote fade-up">
           <div class="section-tag">🌿 Our Story</div>
-          <p class="quote">Welcome to Cranebrook Gardens. We are a small, family-owned market garden.</p>
+          <p class="quote serif">“Welcome to Cranebrook Gardens. We are a small, family-owned market garden.”</p>
           <p>
-            This version of the site keeps the business feeling real and grounded — not overdone, not generic, just clean, warm, and premium enough to look established.
+            This version is written to sound like the real business, not a fake luxury brand. It stays polished and premium, but still feels local, family-run, and believable.
           </p>
         </div>
 
-        <div class="card fade-up">
-          <div class="section-tag">✨ Why this version works</div>
-          <h3>More authentic, more local, more believable.</h3>
-          <p>
-            The copy is now built around the real business: family-owned, market garden, Cranebrook location, current opening hours, and Facebook as the best place for live updates.
-          </p>
-          <div class="detail-grid">
-            <div class="detail">
-              <span>Tone</span>
-              Warm, local, trustworthy
-            </div>
-            <div class="detail">
-              <span>Style</span>
-              Premium without feeling fake
-            </div>
-            <div class="detail">
-              <span>Best use</span>
-              Customers checking where and when to visit
-            </div>
-            <div class="detail">
-              <span>Live updates</span>
-              Facebook page linked throughout
-            </div>
-          </div>
+        <div class="feature-grid fade-up">
+          <article class="card">
+            <h3>Real business feel</h3>
+            <p>The copy is built around what customers actually care about: fresh produce, where to go, when to visit, and where to check for updates.</p>
+          </article>
+          <article class="card">
+            <h3>Cleaner premium design</h3>
+            <p>Better spacing, stronger typography, more polished section flow, and a layout that feels more like a final site.</p>
+          </article>
+          <article class="card">
+            <h3>Facebook integrated properly</h3>
+            <p>The real Facebook page is used as the live updates hub instead of being treated like an afterthought.</p>
+          </article>
+          <article class="card">
+            <h3>Made for publishing</h3>
+            <p>Still just one HTML file, so you can drop it straight into your GitHub repo and connect it to Netlify fast.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -799,9 +830,9 @@
       <div class="container">
         <div class="section-title fade-up">
           <div class="section-tag">🥕 Produce</div>
-          <h2>Fresh produce presented with a cleaner, more premium feel.</h2>
+          <h2 class="serif">Fresh produce presented with more depth, warmth, and polish.</h2>
           <p>
-            This section is designed to show customers the kind of freshness and abundance they already expect from a family-run market garden, while giving the business a much stronger first impression online.
+            This section is laid out to feel more like a finished brand site: clear categories, better flow, and enough visual weight to make the business look established online.
           </p>
         </div>
 
@@ -809,22 +840,22 @@
           <article class="produce-card fade-up">
             <div class="produce-icon">🍎</div>
             <h3>Fresh Fruit</h3>
-            <p>Bright, seasonal fruit presented in a way that feels abundant, local, and genuinely farm fresh.</p>
+            <p>Bright, seasonal fruit presented in a way that feels abundant, fresh, and genuinely farm grown.</p>
           </article>
           <article class="produce-card fade-up">
             <div class="produce-icon">🥕</div>
             <h3>Fresh Vegetables</h3>
-            <p>Quality everyday produce with the focus on freshness, colour, and a reliable local shopping experience.</p>
+            <p>Quality everyday produce with a cleaner, more premium presentation than a basic farm or market page.</p>
           </article>
           <article class="produce-card fade-up">
             <div class="produce-icon">🌱</div>
             <h3>Seasonal Highlights</h3>
-            <p>A strong layout for weekly picks, what is looking best right now, and current farm favourites.</p>
+            <p>A strong area for current favourites, what is looking best now, and what customers should watch for each week.</p>
           </article>
           <article class="produce-card fade-up">
             <div class="produce-icon">🧺</div>
-            <h3>Farm Updates</h3>
-            <p>The website stays polished while Facebook handles the latest photos, specials, and produce updates.</p>
+            <h3>Weekly Updates</h3>
+            <p>The site stays timeless while Facebook handles the latest produce photos, updates, and day-to-day changes.</p>
           </article>
         </div>
       </div>
@@ -833,211 +864,17 @@
     <section class="section">
       <div class="container">
         <div class="section-title fade-up">
-          <div class="section-tag">📸 Visual Style</div>
-          <h2>A cleaner gallery that can later be replaced with real Facebook photos.</h2>
+          <div class="section-tag">📸 Gallery</div>
+          <h2 class="serif">A more premium, editorial-style gallery layout.</h2>
           <p>
-            These images are premium placeholders so the site already looks polished. When you swap in real photos from their Facebook page, it will feel much more custom and even stronger.
+            This is no longer just a basic image grid. It is arranged more like a finished homepage gallery so the site feels richer and more intentional straight away.
           </p>
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-card tall fade-up">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80" alt="Farm fresh greens" />
+          <article class="gallery-card large fade-up">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80" alt="Fresh green vegetables" />
             <div class="gallery-copy">
-              <small>Freshness</small>
-              <h3>Farm-fresh greens</h3>
-              <p>Clean visual storytelling that instantly lifts the look of the whole brand.</p>
-            </div>
-          </article>
+              <small>Freshness</sma
 
-          <article class="gallery-card fade-up">
-            <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=1200&q=80" alt="Seasonal produce selection" />
-            <div class="gallery-copy">
-              <small>Seasonal</small>
-              <h3>Colourful produce</h3>
-              <p>Ideal for weekly posts, homepage updates, and special seasonal callouts.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card fade-up">
-            <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=1200&q=80" alt="Fruit display" />
-            <div class="gallery-copy">
-              <small>Display</small>
-              <h3>Fresh fruit presentation</h3>
-              <p>Great for showing abundance, quality, and the market-garden feel.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card tall fade-up">
-            <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?auto=format&fit=crop&w=1200&q=80" alt="Harvest imagery" />
-            <div class="gallery-copy">
-              <small>Local feel</small>
-              <h3>Warm harvest imagery</h3>
-              <p>Helps the site feel genuine, welcoming, and connected to the farm.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="hours" style="background: rgba(255,255,255,0.02);">
-      <div class="container split-grid">
-        <div class="card fade-up">
-          <div class="section-tag">🕒 Opening Hours</div>
-          <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin-bottom: 12px;">Current trading hours</h2>
-          <p style="color: var(--muted);">
-            This section is now based on the real hours you gave me, so it feels much more accurate and useful for customers.
-          </p>
-
-          <div class="hours-grid">
-            <div class="hour-card">
-              <strong>Monday</strong>
-              <span>Closed</span>
-            </div>
-            <div class="hour-card">
-              <strong>Tuesday</strong>
-              <span>Closed</span>
-            </div>
-            <div class="hour-card">
-              <strong>Wednesday</strong>
-              <span>Closed</span>
-            </div>
-            <div class="hour-card">
-              <strong>Thursday</strong>
-              <span>Closed</span>
-            </div>
-            <div class="hour-card">
-              <strong>Friday</strong>
-              <span>08:30 – 16:30</span>
-            </div>
-            <div class="hour-card">
-              <strong>Saturday</strong>
-              <span>08:00 – 16:00</span>
-            </div>
-            <div class="hour-card">
-              <strong>Sunday</strong>
-              <span>08:00 – 12:00</span>
-            </div>
-            <div class="hour-card">
-              <strong>Updates</strong>
-              <span>Check Facebook for the latest</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card cta-card fade-up">
-          <div class="section-tag">📘 Facebook</div>
-          <h2 style="font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.05; margin-bottom: 12px; max-width: 12ch;">Use Facebook as the live update hub.</h2>
-          <p style="color: var(--muted);">
-            The website should stay clean and timeless. Facebook is the best place for fresh photos, weekly produce, and the latest day-to-day updates.
-          </p>
-          <div class="hero-actions" style="margin-top: 24px;">
-            <a class="button button-primary" href="https://www.facebook.com/p/Cranebrook-Gardens-100041410911083/" target="_blank" rel="noopener noreferrer">Open Facebook Page</a>
-            <a class="button button-secondary" href="#visit">View Address</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="visit">
-      <div class="container contact-grid">
-        <div class="card fade-up">
-          <div class="section-tag">📍 Visit</div>
-          <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin-bottom: 8px;">Visit Cranebrook Gardens</h2>
-          <p style="color: var(--muted);">
-            Keep the contact section simple, clear, and easy to trust. This version focuses on the details customers actually need.
-          </p>
-
-          <div class="contact-list">
-            <div class="contact-item">
-              <div>📌</div>
-              <div>
-                <h3>Address</h3>
-                <p>
-                  Gate 1, Packing Shed<br />
-                  2 Cranebrook Road, Cranebrook NSW 2749
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div>🕒</div>
-              <div>
-                <h3>Open</h3>
-                <p>Friday 08:30–16:30, Saturday 08:00–16:00, Sunday 08:00–12:00</p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div>📘</div>
-              <div>
-                <h3>Facebook</h3>
-                <p>Use the Facebook page for current produce photos, updates, and the latest info.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card cta-card fade-up">
-          <div class="section-tag">🚀 Ready for GitHub</div>
-          <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin-bottom: 14px; max-width: 12ch;">This is now a much more real website.</h2>
-          <p style="color: var(--muted); max-width: 58ch;">
-            It is rewritten around the actual business info you gave me. The last big upgrade would be replacing the stock gallery with real produce photos from their Facebook page.
-          </p>
-
-          <div class="hero-actions" style="margin-top: 24px;">
-            <a class="button button-primary" href="https://www.facebook.com/p/Cranebrook-Gardens-100041410911083/" target="_blank" rel="noopener noreferrer">Facebook Page</a>
-            <a class="button button-secondary" href="#top">Back to Top</a>
-          </div>
-
-          <div class="card" style="margin-top: 22px; background: rgba(0,0,0,0.16);">
-            <h3>Still worth swapping later</h3>
-            <p>
-              Real produce photos, a direct phone number if they want one online, and a Google Maps or directions link.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-row">
-      <p>© Cranebrook Gardens — family-owned market garden.</p>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#story">Story</a>
-        <a href="#produce">Produce</a>
-        <a href="#hours">Hours</a>
-        <a href="#visit">Visit</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-      });
-
-      mobileMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-      });
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
-
-    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-  </script>
-</body>
-</html>
 
